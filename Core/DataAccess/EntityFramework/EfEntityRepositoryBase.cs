@@ -6,13 +6,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace Core.DataAccess.EntityFramwork
+namespace Core.DataAccess.EntityFramework
 {
-    public class IFEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
-        where TEntity : class, IEntity, new()
-        where TContext : DbContext, new()
+    public class EfEntityRepositoryBase<TEntity,TContext>: IEntityRepository<TEntity>
+        where TEntity: class, IEntity, new()
+        where TContext : DbContext,new()
     {
-        public void Add(TEntity entity)
+        public void Add(TEntity entity) 
         {
             //IDisposable pattern implementation of c#
             using (TContext context = new TContext())
